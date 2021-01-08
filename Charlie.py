@@ -15,13 +15,13 @@ while True:
     g = str(f)
     h = "UTC: "
     i = g + " " + h
-    n = input(i)
-    if n != endDoc:
+    j = input(i)
+    if j != endDoc:
         continue
     else:
         break
 
-j = datetime.datetime.utcnow()
-k = str(j)
-m = "UTC: ---END OF DOCUMENT---"
-print(k, m)
+k = datetime.datetime.utcnow()
+m = str(k)
+n = "UTC: ---END OF DOCUMENT---"
+print(m, n)
