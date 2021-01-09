@@ -7,12 +7,16 @@ root.title("Timestamp")
 root.geometry("600x400")
 text = Text(root, height=400, width=600)
 
+text.tag_config("timestamp", foreground="blue")
+
 a = datetime.datetime.utcnow()
 b = str(a)
-c = " UTC: ---START OF DOCUMENT---"
-d = b + c
+c = " UTC: "
+p = "---START OF DOCUMENT---"
+d = b + c + p + "\n" + b + c
 
-text.insert(END, d)
+
+text.insert(END, d, "timestamp")
 
 
 def stamp(event):
@@ -21,11 +25,21 @@ def stamp(event):
     g = "\n"
     h = g + g + f
     i = h.removesuffix('\n')
+    text.insert(END, i, "timestamp")
 
-    text.insert(END, i)
+
+def end(event):
+    j = datetime.datetime.utcnow()
+    k = str(j) + " UTC: ---END OF DOCUMENT---"
+    m = "\n"
+    n = m + m + k
+    o = n
+    text.insert(END, o, "timestamp")
 
 
 text.bind("<Return>", stamp)
+text.focus_set()
+text.bind("<backslash><backslash><backslash>", end)
 text.pack()
 
 root.mainloop()
