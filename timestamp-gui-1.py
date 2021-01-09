@@ -1,38 +1,28 @@
 from tkinter import *
 import datetime
-import subprocess as sub
-from subprocess import Popen, PIPE
 
 
 root = Tk()
 root.title("Timestamp")
 root.geometry("600x400")
-
+text = Text(root, height=400, width=600)
 
 a = datetime.datetime.utcnow()
 b = str(a)
-c = "UTC: "
-d = "---START OF DOCUMENT---"
-e = b + " " + c + d
+c = " UTC: ---START OF DOCUMENT---"
+d = b + c
 
-# print(b, c, d)
-
-text = Text(root, height=400, width=600)
-text.insert(END, e)
+text.insert(END, d)
 
 
 def stamp(event):
-    f = datetime.datetime.utcnow()
-    g = str(f)
-    h = "UTC: "
-    i = g + " " + h
-    j = "\n"
-    k = j + j + i
-    m = k.removesuffix('\n')
-    # myLabel = Label(root, text=j)
-    # print(i)
-    text.insert(END, m)
-    # sys.stdout.write.myText(i)
+    e = datetime.datetime.utcnow()
+    f = str(e) + " UTC: "
+    g = "\n"
+    h = g + g + f
+    i = h.removesuffix('\n')
+
+    text.insert(END, i)
 
 
 text.bind("<Return>", stamp)
