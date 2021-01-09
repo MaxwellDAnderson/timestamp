@@ -16,6 +16,7 @@ int main() {
     current = localtime(&now);
     string stamp = asctime(current);
     stamp.pop_back();
+    cout << stamp << ": ---START OF DOCUMENT---\n";
     cout << stamp << ": ";
 
     string endDocument = "\\\\\\";
